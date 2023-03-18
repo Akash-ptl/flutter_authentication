@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/firebase_auth.dart';
+import 'package:flutter_login/global.dart';
 import 'package:flutter_login/login_page.dart';
+import 'package:flutter_login/number.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -20,11 +22,13 @@ class _SignupPageState extends State<SignupPage> {
 
   bool _obscureText = true;
   List<String> _passwordValidationTexts = [];
+
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: null,
       body: Padding(
         padding: const EdgeInsets.all(30),
@@ -34,10 +38,12 @@ class _SignupPageState extends State<SignupPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Spacer(),
                 const Text(
                   'Start your shopping\nadventure',
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
+                SizedBox(height: h / 16),
                 TextFormField(
                   controller: _nameController,
                   decoration: const InputDecoration(
@@ -55,67 +61,19 @@ class _SignupPageState extends State<SignupPage> {
                 TextFormField(
                   controller: _emailController,
                   decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
-                      labelText: 'E-mail address'),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your email';
-                    } else if (!RegExp(
-                            r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
-                        .hasMatch(value)) {
-                      return 'Please enter a valid email';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16),
-                TextFormField(
-                  keyboardType: TextInputType.phone,
-                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15))),
-                    labelText: 'Phone Number',
+                    labelText: 'Email',
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your mobile number';
-                    } else if (!RegExp(r'^\d{10}$').hasMatch(value)) {
-                      return 'Please enter a valid 10-digit mobile number';
-                    }
-                    return null;
-                  },
+                  validator: validateEmailMobile,
                 ),
                 const SizedBox(height: 16),
-                // TextFormField(
-                //   obscureText: obscureText && !showPassword,
-                //   decoration: InputDecoration(
-                //     border: const OutlineInputBorder(
-                //         borderRadius: BorderRadius.all(Radius.circular(15))),
-                //     labelText: 'Password',
-                //     suffixIcon: IconButton(
-                //       icon: Icon(
-                //           showPassword ? Icons.visibility_off : Icons.visibility),
-                //       onPressed: () {
-                //         setState(() {
-                //           showPassword = !showPassword;
-                //         });
-                //       },
-                //     ),
-                //   ),
-                //   validator: (value) {
-                //     if (value!.isEmpty) {
-                //       return 'Please enter your password';
-                //     } else if (value.length < 6) {
-                //       return 'Password must be at least 6 characters long';
-                //     }
-                //     return null;
-                //   },
-                // ),
                 TextFormField(
                   controller: _passwordController,
                   obscureText: _obscureText,
                   decoration: InputDecoration(
+                    border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
                     labelText: 'Password',
                     suffixIcon: IconButton(
                       icon: Icon(_obscureText
@@ -131,11 +89,11 @@ class _SignupPageState extends State<SignupPage> {
                   onTap: () {
                     setState(() {
                       _passwordValidationTexts = [
-                        'Password must be at least 8 characters long',
-                        'Password must contain at least one uppercase letter',
-                        'Password must contain at least one lowercase letter',
-                        'Password must contain at least one digit',
-                        'Password must contain at least one special character',
+                        '8 characters minimum',
+                        'One uppercase letter',
+                        'One lowercase letter',
+                        'One digit',
+                        'One special character',
                       ];
                     });
                   },
@@ -143,34 +101,32 @@ class _SignupPageState extends State<SignupPage> {
                     setState(() {
                       if (_passwordValidationTexts.isNotEmpty) {
                         if (value.length >= 8 &&
-                            _passwordValidationTexts.contains(
-                                'Password must be at least 8 characters long')) {
-                          _passwordValidationTexts.remove(
-                              'Password must be at least 8 characters long');
+                            _passwordValidationTexts
+                                .contains('8 characters minimum')) {
+                          _passwordValidationTexts
+                              .remove('8 characters minimum');
                         }
                         if (RegExp(r'[A-Z]').hasMatch(value) &&
-                            _passwordValidationTexts.contains(
-                                'Password must contain at least one uppercase letter')) {
-                          _passwordValidationTexts.remove(
-                              'Password must contain at least one uppercase letter');
+                            _passwordValidationTexts
+                                .contains('One uppercase letter')) {
+                          _passwordValidationTexts
+                              .remove('One uppercase letter');
                         }
                         if (RegExp(r'[a-z]').hasMatch(value) &&
-                            _passwordValidationTexts.contains(
-                                'Password must contain at least one lowercase letter')) {
-                          _passwordValidationTexts.remove(
-                              'Password must contain at least one lowercase letter');
+                            _passwordValidationTexts
+                                .contains('One lowercase letter')) {
+                          _passwordValidationTexts
+                              .remove('One lowercase letter');
                         }
                         if (RegExp(r'[0-9]').hasMatch(value) &&
-                            _passwordValidationTexts.contains(
-                                'Password must contain at least one digit')) {
-                          _passwordValidationTexts.remove(
-                              'Password must contain at least one digit');
+                            _passwordValidationTexts.contains('One digit')) {
+                          _passwordValidationTexts.remove('One digit');
                         }
                         if (RegExp(r'[!@#\$%\^&\*]').hasMatch(value) &&
-                            _passwordValidationTexts.contains(
-                                'Password must contain at least one special character')) {
-                          _passwordValidationTexts.remove(
-                              'Password must contain at least one special character');
+                            _passwordValidationTexts
+                                .contains('One special character')) {
+                          _passwordValidationTexts
+                              .remove('One special character');
                         }
                       }
                     });
@@ -209,21 +165,13 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'Forgot password?',
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
                       'I would like to receive information about\nVestige innovations in my e-mail',
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     Switch(
                       value: _isSwitched,
@@ -239,7 +187,7 @@ class _SignupPageState extends State<SignupPage> {
                     )
                   ],
                 ),
-                const SizedBox(height: 10),
+                const Spacer(),
                 GestureDetector(
                   onTap: () async {
                     if (_formKey.currentState!.validate()) {
@@ -274,6 +222,81 @@ class _SignupPageState extends State<SignupPage> {
                       style: TextStyle(
                         fontSize: 20,
                       ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Center(
+                  child: RichText(
+                    text: const TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Already have an account? ",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontFamily: 'Sans'),
+                        ),
+                        TextSpan(
+                          text: "Sign in",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Sans'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NumberPage(),
+                            ));
+                      },
+                      child: const Text('Sign up using mobile number')),
+                ),
+                const Spacer(),
+                Center(
+                  child: RichText(
+                    text: const TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "By signing up, you agree to our",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontFamily: 'Sans'),
+                        ),
+                        TextSpan(
+                          text: "Terms. ",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Sans'),
+                        ),
+                        TextSpan(
+                          text: "see how we use\nyour data in our",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                              fontFamily: 'Sans'),
+                        ),
+                        TextSpan(
+                          text: "Privacy Policy",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Sans'),
+                        ),
+                      ],
                     ),
                   ),
                 ),

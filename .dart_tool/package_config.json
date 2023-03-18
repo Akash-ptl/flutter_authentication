@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "_flutterfire_internals",
-      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.0.17",
+      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.0.18",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -30,6 +30,42 @@
       "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/clock-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "cloud_firestore",
+      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/cloud_firestore-4.4.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "cloud_firestore_platform_interface",
+      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/cloud_firestore_platform_interface-5.11.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "cloud_firestore_web",
+      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/cloud_firestore_web-3.3.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "cloud_functions",
+      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/cloud_functions-4.0.13",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "cloud_functions_platform_interface",
+      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/cloud_functions_platform_interface-5.1.32",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "cloud_functions_web",
+      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/cloud_functions_web-4.3.21",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
     },
     {
       "name": "collection",
@@ -75,7 +111,7 @@
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.7.1",
+      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -248,6 +284,12 @@
       "languageVersion": "2.13"
     },
     {
+      "name": "material_design_icons_flutter",
+      "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/material_design_icons_flutter-6.0.7096",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "meta",
       "rootUri": "file:///C:/Users/Akashptl/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.8.0",
       "packageUri": "lib/",
@@ -332,7 +374,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-16T12:38:54.143211Z",
+  "generated": "2023-03-18T09:53:06.929241Z",
   "generator": "pub",
   "generatorVersion": "2.19.3"
 }

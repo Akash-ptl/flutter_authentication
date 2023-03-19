@@ -18,8 +18,6 @@ img {
 
 <table cellpadding="0" cellspacing="0">
   <tr>
-  </tr>
-  <tr>
     <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-1.png" </td>
     <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-2.png" </td>
     <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-3.png" </td>

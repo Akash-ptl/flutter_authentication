@@ -1,27 +1,6 @@
 # flutter_login
 
 A new Flutter project.
-<style>
-table {
-  border-collapse: collapse;
-  table-layout: fixed;
-  width: 100%;
-}
-td {
-  padding: 0;
-}
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0;
-}
-</style>
-
-| Column 1 | Column 2 | Column 3 |
-| --- | --- | --- |
-| <img src="images/app-mockup-android-screenshot-7-default-1080x1920-1.png" alt="Image 1"> | <img src="images/app-mockup-android-screenshot-7-default-1080x1920-1.png" alt="Image 2"> | <img src="images/app-mockup-android-screenshot-7-default-1080x1920-1.png" alt="Image 3"> |
-
 <table cellpadding="0" cellspacing="0">
   <tr>
     <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-1.png" </td>

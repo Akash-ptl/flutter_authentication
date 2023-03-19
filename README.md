@@ -1,13 +1,18 @@
 # flutter_login
 
 A new Flutter project.
-
 <style>
 table {
   border-collapse: collapse;
 }
 td, th {
   border: none;
+  padding: 0;
+  margin: 0;
+}
+img {
+  padding: 0;
+  margin: 0;
 }
 </style>
 

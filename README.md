@@ -2,6 +2,15 @@
 
 A new Flutter project.
 
+<style>
+table {
+  border-collapse: collapse;
+}
+td, th {
+  border: none;
+}
+</style>
+
 <table>
   <tr>
   </tr>
@@ -20,7 +29,8 @@ A new Flutter project.
     <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-8.png" </td>
     <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-9.png" </td>
   </tr>
- </table>
+</table> 
+
 
 This project is a starting point for a Flutter application.
 

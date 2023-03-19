@@ -2,7 +2,25 @@
 
 A new Flutter project.
 
-## Getting Started
+<table>
+  <tr>
+  </tr>
+  <tr>
+    <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-1.png" </td>
+    <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-2.png" </td>
+    <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-3.png" </td>
+  </tr>
+  <tr>
+    <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-4.png" </td>
+    <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-5.png" </td>
+    <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-6.png" </td>
+  </tr>
+   <tr>
+    <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-7.png" </td>
+    <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-8.png" </td>
+    <td><img src="images/app-mockup-android-screenshot-7-default-1080x1920-9.png" </td>
+  </tr>
+ </table>
 
 This project is a starting point for a Flutter application.
 

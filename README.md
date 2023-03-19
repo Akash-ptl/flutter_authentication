@@ -4,12 +4,14 @@ A new Flutter project.
 <style>
 table {
   border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
 }
 td {
-  border: 1px solid black;
-  padding: 10px;
+  padding: 0;
 }
 img {
+  display: block;
   max-width: 100%;
   height: auto;
 }

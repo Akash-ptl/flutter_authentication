@@ -5,16 +5,19 @@ A new Flutter project.
 table {
   border-collapse: collapse;
 }
-td, th {
-  border: none;
-  padding: 0;
-  margin: 0;
+td {
+  border: 1px solid black;
+  padding: 10px;
 }
 img {
-  padding: 0;
-  margin: 0;
+  max-width: 100%;
+  height: auto;
 }
 </style>
+
+| Column 1 | Column 2 | Column 3 |
+| --- | --- | --- |
+| <img src="images/app-mockup-android-screenshot-7-default-1080x1920-1.png" alt="Image 1"> | <img src="images/app-mockup-android-screenshot-7-default-1080x1920-1.png" alt="Image 2"> | <img src="images/app-mockup-android-screenshot-7-default-1080x1920-1.png" alt="Image 3"> |
 
 <table cellpadding="0" cellspacing="0">
   <tr>
